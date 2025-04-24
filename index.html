@@ -12,53 +12,47 @@
 
 	<link rel="stylesheet" type="text/css" href="styles.css">
 
-	<title>Q4 EX3: </title>
+	<title>Q4 EX#2</title>
 </head>
  <body>
+ 	<h1>Age Verification</h1>
+ 	<div class="container">
+	 	<div class="row">
+	 		<label for="name">Enter name:</label>
+	 		<input type="text" class="form-control" id="name" placeholder="First name">
+	 	<br>
+	 		<label for="age">Enter age:</label>
+	 		<input type="number" class="form-control" id="age" placeholder="Number value">
+	 	<br>
+	 		<label for="email">Enter email:</label>
+	 		<input type="number" class="form-control" id="email" placeholder="Valid email address">
+	 	<h3 id="gate"></h3>
+	 	</div>
 
- 	<!-- INTERFACE -->
- <div class="container mt-3">
- 	<div class="row">
- 		<h1>Magnitude Checker ~~~</h1>
- 	<hr>
- 	 <div class="col">
- 		<img src="https://img.freepik.com/free-vector/seismograph-machine-with-graph-seismic-earthquake-activity-instrument-seismometer-technology-graph-vector-illustration_1284-46225.jpg" height="425px"></img>
- 	 </div>
- 	 <div class="col">
- 		<p>Welcome to the magnitude checker! Enter a magnitude value and obtain the observed damage effects of your given magnitude.</p>
- 		<label for="magVal">Magnitude value:</label>
-	 	<input type="number" class="form-control" id="magVal">
-	 	<button type="button" class="btn btn-primary" onclick="check()">Check</button>
-	 	<button type="button" class="btn btn-primary" onclick="window.location.reload()">Refresh</button>
- 	 </div>
+	 	<div class="row mt-3">
+  		 <div class="button-row">
+    		<button type="button" class="btn btn-primary" onclick="verify()">Submit</button>
+    		<button type="button" class="btn btn-primary" onclick="window.location.reload()">Refresh</button>
+  		 </div>
+		</div>
  	</div>
-</div>
+	
+ 	<!-- SCRIPTS -->
+ 	<script type="text/javascript">
+ 		function verify() {
+ 			var inputAge=document.getElementById('age').value;
+ 			var name=document.getElementById('name').value;
 
- 	<!-- SCRIPT-->
- <script type="text/javascript">
- 	function check() {
- 		var magnitudeInput=document.getElementById('magVal').value;
-
- 		if (magnitudeInput >=8) {
- 			window.alert('Catastrophic');
+ 			if (inputAge<=17) {
+ 				window.alert('User not eligible to apply due to reason of age.');
+ 				document.getElementById('gate').innerHTML='Sorry, you are not yet of age! Please leave the site. Maybe you would be interested in KidCrew?'
+ 			}
+ 			else {
+ 				window.alert('User ' + name + ' is eligible to apply due to reason of age.');
+ 				document.getElementById('gate').innerHTML='Welcome to the crew, ' + name + '! Please proceed to the next instructed process.';
+ 			}
  		}
- 		else if (magnitudeInput >=7 && magnitudeInput <=7.9) {
- 			window.alert('Major Damage');
- 		}
- 		else if (magnitudeInput >=6.1 && magnitudeInput <=6.9) {
- 			window.alert('Damage likely');
- 		}
- 		else if (magnitudeInput >=5.5 && magnitudeInput <=6.0) {
- 			window.alert('Slight Damage');
- 		}
- 		else if (magnitudeInput >=2.5 && magnitudeInput <=5.4) {
- 			window.alert('Rarely Damage');
- 		}
- 		else {
- 			window.alert('Not Always Felt');
- 		}
- 	}
- </script>
+ 	</script>
 
 	<div class="footer mt-5 text-center"><h2><a href="https://aledesma-9r.github.io/Q3EX2/">&#169; AY 24-25 | ICT 9-R | Aisha Ashley O. Ledesma</a></h2></div>
  </body>
